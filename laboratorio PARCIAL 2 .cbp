@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+void INGRESAR_DENNIS(float &Vchocolate,float &Vchicle,float &Vagua,float &saldo  , int &Cagua,int &Cchocolate,int &Cchicle,int &opciones,char &sig);
+void MOSTRAR_DENNIS(float saldo,int Cagua,int Cchocolate,int Cchicle,int opciones);
+void SALDO_DENNIS(float saldo);
+int main(){
+    float Vchocolate=0.40,Vchicle=0.30,Vagua=0.50,saldo;
+    int Cagua,Cchocolate,Cchicle,opciones;
+    char sig;
+
+
+
+
+
+
+    cout<<"\t\t\tPRODUCTOS"<<endl;
+    cout<<"     |NOMBRE       |CANTIDAD  |VALOR   |"<<endl;
+    cout<<"1    |AGUAS        |5         |$0.50   |"<<endl;
+    cout<<"2    |CHOCOLATE    |10        |$0.40   |"<<endl;
+    cout<<"3    |CHICLE       |20        |$0.30   |"<<endl;
+    cout<<endl;
+
+    INGRESAR_DENNIS(Vchocolate,Vchicle,Vagua,saldo,Cagua,Cchocolate,Cchicle,opciones,sig);
+    MOSTRAR_DENNIS(saldo,Cagua,Cchocolate,Cchicle,opciones);
+    SALDO_DENNIS(saldo);
+
+}
+
+
+void INGRESAR_DENNIS(float &Vchocolate,float &Vchicle,float &Vagua,float &saldo  , int &Cagua,int &Cchocolate,int &Cchicle,int &opciones,char &sig){
+    cout<<"INGRESAR SALDO:"<<endl;
+    cin>>saldo;
+
+
+   do{
+
+    cout<<"INGRESAR PRODUCTO:  1)AGUAS    2)CHOCOLATES   3)CHICLES"<<endl;
+    cin>>opciones;
+
+    switch(opciones){
+        case 1: cout<<"INGRESAR  CANTIDAD DE AGUA:"<<endl;
+                cin>>Cagua;
+                saldo = saldo -(Vagua * Cagua);
+
+                break;
+
+        case 2: cout<<"INGRESAR  CANTIDAD DE CHOCOLATE:"<<endl;
+                cin>>Cchocolate;
+                  saldo=saldo - (Vchocolate * Cchocolate);
+                break;
+
+        case 3: cout<<"INGRESAR  CANTIDAD DE CHICLES:"<<endl;
+                cin>>Cchicle;
+                saldo= saldo-(Vchicle * Cchicle);
+                break;
+        default: cout<< "opcion incalida"<< endl;
+        break;
+
+
+}
+
+
+
+cout<<"DESEAS CONTINUAR COMPRANDO(S/N)"<<endl;
+cin>>sig;
+} while(sig=='S'||sig=='s');
+}
+
+
+
+
+
+
+void MOSTRAR_DENNIS(float saldo,int Cagua,int Cchocolate,int Cchicle,int opciones){
+
+
+
+if (Cagua > 0) {
+        cout << "EN AGUA PEDISTE: " << Cagua << endl;
+    }
+    if (Cchocolate > 0) {
+        cout << "EN CHOCOLATES PEDISTE: " << Cchocolate << endl;
+    }
+    if (Cchicle > 0) {
+        cout << "EN CHICLES PEDISTE: " << Cchicle << endl;
+    }
+
+}
+
+void SALDO_DENNIS(float saldo){
+
+    cout<<"TU SALDO ES:"<<saldo<<endl;
+
+}
+
+
